@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <div class="col-sm-9">
+
+
+    </div>
+
+
+    <div class="col-sm-3">
+        <div class="well">
+
+            <h2>Sign in</h2>
+            <%= form_tag do %>
+            <%= label_tag :username %>
+            <%= text_field_tag :username,"", class:"form-control" %><br>
+            <%= label_tag :password %>
+            <%= password_field_tag :password,"", class:"form-control" %><br>
+            <div class="form-group">
+                <%= submit_tag "Sign In", class:'btn btn-primary btn-lg' %>
+                <%= link_to 'Sign Up', new_user_path,class:'btn btn-primary btn-lg' %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+
+</div>
