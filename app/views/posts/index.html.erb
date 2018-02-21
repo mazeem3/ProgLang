@@ -1,0 +1,46 @@
+<div class="container">
+
+    <%= link_to new_post_path do %>
+    <h2 class="btn btn-primary btn-lg new_post">New Post</h2>
+    <% end %>
+    <br>
+    <br>
+
+    <div class="well">
+        <% @posts.each do |post| %>
+        <div class="row post">
+            <div class="col-xs-1">
+                <div class="well well-lg">
+                    <%= link_to positive_vote_path(id: post.id), method: 'patch' do %>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    <% end %>
+                    <p><%= "#{post.vote}" %></p>
+                    <%= link_to negative_vote_path(id: post.id), method: 'patch' do %>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="col-xs-11">
+                    <% if post.url.present? %>
+                    <h2><%= link_to post.title, "http://#{post.url}" %>
+                    <% else %>
+                        <h2>
+                            <%= link_to post.title, post_path(id: post.id) %>
+                            <% end %>
+                            </h2>
+                            <br>
+                            <p>
+                              - <%= post.author %>
+                                <br>
+                                Submitted <%= time_ago_in_words(post.created_at)%> ago  </p>
+                            <h2>
+                            <small><%=link_to pluralize(post.comments.size, 'Comment'),post_path(id: post.id)%></small>
+                        </h2>
+                    </div>
+                </div>
+                <hr>
+
+                <% end %>
+            </div>
+        </div>
