@@ -23,7 +23,7 @@
 
   <div class="col-xs-11">
     <% if post.url.present? %>
-      <h2><%= link_to post.title, "http://#{post.url}" %>
+      <h2><%= link_to post.title, "http://#{post.url}", :target => '_blank' %>
       <% else %>
         <h2>
           <%= link_to post.title, post_path(id: post.id) %>

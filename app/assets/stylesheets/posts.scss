@@ -7,7 +7,7 @@
 .page-header{
   text-align: center;
   text-decoration: none;
-  background-color: #272625;
+  background-color: #000000;
   border-bottom: none;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -18,11 +18,11 @@
   }
 }
 .page-header a{
-color: #7268b5;
+color: #710784;
 }
 
 div.well{
-  background-color: #5d568c;
+  background-color: #710784;
   border-color: transparent;
   padding: 0;
   padding-left: 20px;
@@ -30,7 +30,7 @@ div.well{
 
 }
 body{
-  background-color: #a0391e;
+  background-color: #000000;
 }
 .container{
   color: white;
@@ -40,8 +40,8 @@ body{
 
 }
 .btn-primary{
-  background-color: #5d568c;
-  border-color: #5d568c;
+  background-color: #710784;
+  border-color: #710784;
 }
 input.btn.btn-lg.btn-primary:hover {
   color: black;
@@ -54,6 +54,7 @@ a:hover{
 }
 body{
   font-family: 'Montserrat', sans-serif;
+  color:  white;
 }
 small{
   color: #9a9696;
@@ -79,7 +80,7 @@ div.well.well-lg{
   margin-bottom: 50%;
   text-align: center;
   font-size: 110%;
-  color: #ad6957;
+  color: white;
 }
 .well.well-lg p{
   text-align: center;
