@@ -4,7 +4,7 @@
     <title>RedditClone</title>
     <div class="page-header">
       <%= link_to root_path, class: "title_text" do%>
-      
+
         <%= link_to 'Read-IT!', root_path %></h1>
     <%end %>
     <%= csrf_meta_tags %>
@@ -14,7 +14,24 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
+  <header>
+
+
+    <% if @current_user %>
+    <%= link_to 'Sign Out', sign_in_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign In', sign_in_path %>
+    <% end %>
+</header>
+
+
+<body>
+
+  <% if notice %>
+  <p>
+    <%= notice %>
+  </p>
+<% end %>
     <%= yield %>
   </body>
 </html>
