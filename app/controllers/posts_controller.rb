@@ -6,9 +6,16 @@ class PostsController < ApplicationController
       end
     end
 
+    def home
+      @posts = Post.all.order("vote desc")
+    end
+
+    def feed
+      @posts = @current_user.timeline
+    end
 
     def index
-      @posts = Post.all.order("vote desc")
+      @posts = Post.where user_id: @current_user.id
     end
 
     def show
@@ -25,6 +32,7 @@ class PostsController < ApplicationController
       @post.title = params[:post][:title]
       @post.url = params[:post][:url]
       @post.author = @current_user.username
+      @post.user = @current_user
       if @post.save
         redirect_to post_path(id: @post.id)
       else

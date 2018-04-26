@@ -27,4 +27,20 @@ class UsersController < ApplicationController
         end
     end
 
+    def following
+        @users = @current_user.following_users
+    end
+
+    def follow
+        user = User.find_by! id: params[:user_id]
+        @current_user.follow(user)
+        redirect_to root_path, notice: 'Followed'
+    end
+
+    def unfollow
+        user = User.find_by! id: params[:user_id]
+        @current_user.stop_following(user)
+        redirect_to users_path, notice: 'Unfollowed'
+    end
+
 end

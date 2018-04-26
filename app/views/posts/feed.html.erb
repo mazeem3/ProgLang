@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="col-md-8">
+
+    <div class="list-group">
+      <div class="well">
+
+            <% @posts.each do |post| %>
+              <% if post.url.present? %>
+                <h2><%= link_to post.title, "http://#{post.url}", :target => '_blank' %>
+                <% else %>
+                  <h2>
+                    <%= link_to post.title, post_path(id: post.id) %>
+                  <% end %>
+                </h2>
+                <br>
+                <p>
+                  -
+                  <%= post.author %>
+                  <br>
+                  Submitted
+                  <%= time_ago_in_words(post.created_at)%>
+                  ago
+                </p>
+                <h2>
+                  <small><%=link_to pluralize(post.comments.size, 'Comment'),post_path(id: post.id)%></small>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>

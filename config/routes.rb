@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'posts#home'
+  get 'posts/profile' => 'posts#index', as: :profile
   get 'posts/new'=> 'posts#new', as: :new_post
   get 'posts/:id' => 'posts#show', as: :post
   get 'comments/:id' => 'comments#show', as: :comment
@@ -19,6 +20,15 @@ Rails.application.routes.draw do
 
   get 'registration' => 'users#new', as: :new_user
   post 'registration' => 'users#create', as: :create_user
+
+  get 'followers' => 'users#index', as: :users
+  get 'following' => 'users#following', as: :following
+  post 'follow/:user_id' => 'users#follow', as: :follow
+  post 'unfollow/:user_id' => 'users#unfollow', as: :unfollow
+
+  get 'feed' => 'posts#feed', as: :feed
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
