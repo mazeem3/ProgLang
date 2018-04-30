@@ -8,12 +8,10 @@ class PostsController < ApplicationController
 
     def home
       @posts = Post.all.order("vote desc")
-
-
       if params[:search]
-        @posts = Post.search(params[:search]).order("created_at DESC")
+        @posts = Post.search(params[:search]).order("vote desc")
       else
-        @posts = Post.all.order("created_at DESC")
+        @posts = Post.all.order("vote desc")
       end
     end
 
